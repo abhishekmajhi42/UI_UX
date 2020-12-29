@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;
+background:black;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+* {box-sizing: border-box}
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 3000px;
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+p {
+color:white;
+  }
+  h2 {
+color:white;
+  }
+  
+/* Create three equal columns that floats next to each other */
+.column {
+
+  width: 20%;
+  position:absolute;
+  top:300px;
+  display:none;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content1 {
+  background-color: black;
+  position:absolute;
+  top:300px;
+}
+
+.content2 {
+  background-color: black;
+  position:absolute;
+  top:800px;
+}
+
+.content3 {
+  background-color: black;
+  position:absolute;
+  top:1300px;
+}
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+
+/* Style the search box */
+#mySearch {
+  width: 70%;
+  font-size: 18px;
+  padding: 5px;
+  border: 2px solid #ddd;
+  float:right;
+  background-color: white;
+   border-radius: 4px;
+   position:absolute;
+   top:500px;
+   margin-left:20%;
+}
+
+.dropbtn {
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  position:absolute;
+   top:50px;
+   margin-left:10%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #ff9933;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ff9933;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ff9933;
+}
+
+
+.footer {
+   left: 0;
+   position:absolute;
+   top:2200px;
+   width: 100%;
+   background-color: white;
+   color: white;
+   text-align: center;
+}
+ 
+
+.description {
+  position: absolute;
+  top: 350px;
+  float:left;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.9); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 1px;
+}
+</style>
+</head>
+<body>
+<div>
+<ul>
+<img src="logo.png" style="float:left; padding:20px;" height="70px" width="10%">
+<li><a href="index.html">Home</a></li>
+  <li><a class="active" href="#movies">Movies</a></li>
+  <li><a href="#tv_series">TV Series</a></li>
+  <li><a href="#audio">Audio</a></li>
+</ul>
+</div>
+
+<div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="call_poster.jpg" height="400px" width="100%">
+  </div>
+
+  <div class="mySlides1">
+    <img src="the_owners.jpg" height="400px" width="100%">
+  </div>
+
+  <div class="mySlides1">
+    <img src="the_bloodish.jpg" height="400px" width="100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+  
+</div>
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Genre -</button>
+  <div class="dropdown-content" style="left:0;">
+  <p id="link1" onclick="filterSelection('action')" style="color:black">Action</p>
+  <p id="link2" onclick="filterSelection('drama')" style="color:black">Drama</p>
+  <p id="link3" onclick="filterSelection('sci_fic')" style="color:black">Science Fiction</p>
+  <p id="link4" onclick="filterSelection('all')" style="color:black">All</p>
+  </div>
+</div>
+
+<input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+<div class="row">
+  <div class="column action">
+    <div class="content1">
+      <img src="movies/extraction.jpg" alt="action" style="width:100%">
+	  <div class="description">
+    <p>Extraction</p>
+      <p>English,Action Film.</p>
+  </div>
+    </div>
+  </div>
+  <div class="column drama">
+    <div class="content2">
+    <img src="movies/castlebook.jpg" alt="drama" style="width:100%">
+	  <div class="description">
+    <p>Castlebook</p>
+      <p>English,Drama Film.</p>
+  </div>
+    </div>
+  </div>
+  <div class="column sci_fic">
+    <div class="content3">
+    <img src="movies/sputnik.jpg" alt="sci_fic" style="width:100%">
+	  <div class="description">
+    <p>Sputnik</p>
+      <p>English,Science-Fiction Film.</p>
+  </div>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+<div class="footer">
+<img src="logo.png" style="float:left; padding:10px;" height="50px" width="10%">
+  <p style="color:black; float:left;">Powered by 365 Entertainment Portal 2020. All Rights Reserved.</p>
+</div>
+
+
+<script>
+var slideIndex = [1,1];
+var slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>
